@@ -1,0 +1,38 @@
+.jumbotron{
+    background-color: darkturquoise;
+    color: darkslateblue;
+    font-family: cursive;
+}
+html {
+    background-color: dodgerblue;
+}
+img.resize{
+    max-width: 75px;
+    max-height: 75px;
+    float: static;
+}
+#Survey-Form{
+    background-color: darkviolet;
+    color: lavenderblush;
+    font-family: cursive;
+}
+a:link {
+ color: lightseagreen;
+ font-family: cursive;
+ background-color: darkslateblue;
+}
+
+a:visited {
+ color: lightgreen;
+ font-family: cursive;
+}
+
+a:hover {
+color: yellow;
+font-family: cursive;
+}
+
+a:active {
+color: lawngreen;
+font-family: cursive;
+}
