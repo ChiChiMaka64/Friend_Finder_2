@@ -18,11 +18,11 @@
         <form>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Full Name (Required)</label>
-                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="First and Last Name">
+                <input type="name" class="form-control" id="name" placeholder="First and Last Name">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlFile1">Photo Image (Required)</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" id="image">
             </div>
             <div id="Question1">
                 <h3>1. You love to sing all the time.</h3>
@@ -85,7 +85,7 @@
 
             </div>
             <div id="Question6">
-                <h3>6. You know all of the dance moves for that muusical.</h3>
+                <h3>6. You know all of the dance moves for that musical.</h3>
                 <select>
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
@@ -134,10 +134,10 @@
                 </select>
 
             </div>
-            <div id="Question10">
+            <div>
                 <h3>10. Your absolute dream is to meet and greet your favorite actor from that musical at the end of the show
                     as well as getting a picture and an autograph of your favorite actor. </h3>
-                <select>
+                <select id="Question10">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -150,17 +150,69 @@
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
     </div>
+    <a href="../data/friends.js">API Cast Members List</a> ||
+    <a href="https://github.com/ChiChiMaka64/Friend_Finder_2.git">GitHub Repo</a>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="../data/friends.js"></script>
-    <script src="../routing/apiRoutes.js"></script>
-    <script src="../routing/htmlRoutes.js"></script>
-    <script src="server.js"></script>
-    <a href="../data/friends.js">API Cast Members List</a> ||
-    <a href="https://github.com/ChiChiMaka64/Friend_Finder_2.git">GitHub Repo</a>
+
+    <script>
+        $(function () {
+            $("#Survey-Form").submit(function () {
+                event.preventDefault();
+                var user = {
+                    name: $("#name").val(),
+                    picture: $("#image").val(),
+                    answers: [],
+                }
+                var value1 = $('#Question1').val();
+                user.answers.push(value1),
+                    console.log(user);
+                var value2 = $('#Question2').val();
+                user.answers.push(value2),
+                    console.log(user);
+                var value3 = $('#Question3').val();
+                user.answers.push(value3),
+                    console.log(user);
+                var value4 = $('#Question4').val();
+                user.answers.push(value4),
+                    console.log(user);
+                var value5 = $('#Question5').val();
+                user.answers.push(value5),
+                    console.log(user);
+                var value6 = $('#Question6').val();
+                user.answers.push(value6),
+                    console.log(user);
+                var value7 = $('#Question7').val();
+                user.answers.push(value7),
+                    console.log(user);
+                var value8 = $('#Question8').val();
+                user.answers.push(value8),
+                    console.log(user);
+                var value9 = $('#Question9').val();
+                user.answers.push(value9),
+                    console.log(user);
+                var value10 = $('#Question10').val();
+                user.answers.push(value10),
+                    console.log(user);
+
+            })
+            // $("#Question1").val().trim();
+            // $("#Question2").val().trim();
+            // $("#Question3").val().trim();
+            // $("#Question4").val().trim();
+            // $("#Question5").val().trim();
+            // $("#Question6").val().trim();
+            // $("#Question7").val().trim();
+            // $("#Question8").val().trim();
+            // $("#Question9").val().trim();
+            // $("#Question10").val().trim();
+        })
+
+
+    </script>
 </body>
 
 </html>

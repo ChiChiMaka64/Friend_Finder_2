@@ -1,4 +1,4 @@
-var futureCastInfo=[
+var castData=[
     {
         name: "Lynette Okoroike",
         picture: "",
@@ -10,4 +10,4 @@ var futureCastInfo=[
       answers: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
     }
 ];
-module.exports=futureCastInfo;
+module.exports=castData;
