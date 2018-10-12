@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/friendfindermusical.css" />
 
 </head>
@@ -147,9 +148,35 @@
                 </select>
 
             </div>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success" id="button">Submit</button>
         </form>
     </div>
+    <div class="modal" id="resultsModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">This cast member would like to get to know you! Shoot him/her a message!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Name:</p><h3 id="matchName"></h3>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Send a Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.reload();">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <a href="../data/friends.js">API Cast Members List</a> ||
     <a href="https://github.com/ChiChiMaka64/Friend_Finder_2.git">GitHub Repo</a>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
@@ -199,17 +226,72 @@
                     console.log(user);
 
             })
-            // $("#Question1").val().trim();
-            // $("#Question2").val().trim();
-            // $("#Question3").val().trim();
-            // $("#Question4").val().trim();
-            // $("#Question5").val().trim();
-            // $("#Question6").val().trim();
-            // $("#Question7").val().trim();
-            // $("#Question8").val().trim();
-            // $("#Question9").val().trim();
-            // $("#Question10").val().trim();
+            
         })
+        $("button").submit( function(event) {
+        event.preventDefault();
+
+        if (formValidation()) {
+
+
+            var userData = {
+                    name: $("#name").val(),
+                    picture: $("#image").val(),
+                    answers: [
+                    $('#Question1').val(),
+                    $('#Question2').val(),
+                    $('#Question3').val(),
+                    $('#Question4').val(),
+                    $('#Question5').val(),
+                    $('#Question6').val(),
+                    $('#Question7').val(),
+                    $('#Question8').val(),
+                    $('#Question9').val(),
+                    $('#Question10').val(),
+                    ],
+                }
+
+            console.log(userData);
+            
+            $.post("/data/friends",userData , function (data) {
+
+                //alert(data);
+
+                $("#matchName").text(data.name);
+                
+                
+                // Show best match on pop up modal
+                $("#resultsModal").modal("toggle");
+
+                
+                
+            });
+
+        } // end of if valid
+        
+        
+
+    }); // end of button click
+
+    
+    // Need to Validate the Form 
+     function formValidation() {
+
+        var formValid = true;
+        $(".form-group row").each(function() {
+          if ($(this).val() === "") {
+            formValid = false;
+          }
+        });
+
+        $(".select-option").each(function() {
+            if ($(this).val() === "") {
+            formValid = false;
+          }
+        });
+        
+        return formValid;
+      }
 
 
     </script>
