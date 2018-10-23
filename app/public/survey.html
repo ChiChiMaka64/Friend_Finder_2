@@ -228,70 +228,70 @@
             })
             
         })
-        $("button").submit( function(event) {
-        event.preventDefault();
+    //     $("button").submit( function(event) {
+    //     event.preventDefault();
 
-        if (formValidation()) {
+    //     if (formValidation()) {
 
 
-            var userData = {
-                    name: $("#name").val(),
-                    picture: $("#image").val(),
-                    answers: [
-                    $('#Question1').val(),
-                    $('#Question2').val(),
-                    $('#Question3').val(),
-                    $('#Question4').val(),
-                    $('#Question5').val(),
-                    $('#Question6').val(),
-                    $('#Question7').val(),
-                    $('#Question8').val(),
-                    $('#Question9').val(),
-                    $('#Question10').val(),
-                    ],
-                }
+    //         var userData = {
+    //                 name: $("#name").val(),
+    //                 picture: $("#image").val(),
+    //                 answers: [
+    //                 $('#Question1').val(),
+    //                 $('#Question2').val(),
+    //                 $('#Question3').val(),
+    //                 $('#Question4').val(),
+    //                 $('#Question5').val(),
+    //                 $('#Question6').val(),
+    //                 $('#Question7').val(),
+    //                 $('#Question8').val(),
+    //                 $('#Question9').val(),
+    //                 $('#Question10').val(),
+    //                 ],
+    //             }
 
-            console.log(userData);
+    //         console.log(userData);
             
-            $.post("/data/friends",userData , function (data) {
+    //         $.post("/data/friends",userData , function (data) {
 
-                //alert(data);
+    //             //alert(data);
 
-                $("#matchName").text(data.name);
+    //             $("#matchName").text(data.name);
                 
                 
-                // Show best match on pop up modal
-                $("#resultsModal").modal("toggle");
+    //             // Show best match on pop up modal
+    //             $("#resultsModal").modal("toggle");
 
                 
                 
-            });
+    //         });
 
-        } // end of if valid
+    //     } // end of if valid
         
         
 
-    }); // end of button click
+    // }); // end of button click
 
     
-    // Need to Validate the Form 
-     function formValidation() {
+    // // Need to Validate the Form 
+    //  function formValidation() {
 
-        var formValid = true;
-        $(".form-group row").each(function() {
-          if ($(this).val() === "") {
-            formValid = false;
-          }
-        });
+    //     var formValid = true;
+    //     $(".form-group row").each(function() {
+    //       if ($(this).val() === "") {
+    //         formValid = false;
+    //       }
+    //     });
 
-        $(".select-option").each(function() {
-            if ($(this).val() === "") {
-            formValid = false;
-          }
-        });
+    //     $(".select-option").each(function() {
+    //         if ($(this).val() === "") {
+    //         formValid = false;
+    //       }
+    //     });
         
-        return formValid;
-      }
+    //     return formValid;
+    //   }
 
 
     </script>
