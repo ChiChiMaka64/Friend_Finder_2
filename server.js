@@ -2,27 +2,35 @@ var express = require("express");
 var bodyParser = require("body-parser");
 require("./app/routing/apiRoutes");
 require("./app/routing/htmlRoutes");
-require("./app/data/friends");
-
+var path=require("path");
+var friends=require("./app/data/friends");
 var app = express();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
 
-app.get("/all")
-
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static("/public/"));
+
+app.get("/", function(req, res){
+  res.sendFile(path.join(__dirname, "./app/public/home.html"));
+})
+app.get("/survey", function(req, res){
+  res.sendFile(path.join(__dirname, "./app/public/survey.html"));
+})
+
+
 
 app.post('/api/friends', function (req, res) {
   // grabs the user's input from the survey
   let user = req.body;
+  console.log(user);
 
   // takes the user's scores from each question
-  let userScore = user.scores;
+  let userScore = user.score;
 
   // variables used to hold match's name and image
   let matchName = '';
@@ -39,7 +47,7 @@ app.post('/api/friends', function (req, res) {
 
       // for loop that compares the difference between the user and friends list scores
       for (let j = 0; j < userScore.length; j++) {
-          difference += Math.abs(friends[i].scores[j] - userScore[j])
+          difference += Math.abs(friends[i].score[j] - userScore[j])
       }
 
       // whichever friend has the lowest difference will become the match

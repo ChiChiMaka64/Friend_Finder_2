@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-    <link rel="stylesheet" href="../public/css/friendfindermusical.css" />
+    <link rel="stylesheet" href="css/friendfindermusical.css" />
 
 </head>
 
@@ -25,9 +25,9 @@
                 <label for="exampleFormControlFile1">Photo Image (Required)</label>
                 <input type="file" class="form-control-file" id="image">
             </div>
-            <div id="Question1">
+            <div>
                 <h3>1. You love to sing all the time.</h3>
-                <select>
+                <select id="Question1">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -37,9 +37,9 @@
                 </select>
 
             </div>
-            <div id="Question2">
+            <div>
                 <h3>2. You love to collect all the musicals' original cast recording albums.</h3>
-                <select>
+                <select id="Question2">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -49,9 +49,9 @@
                 </select>
 
             </div>
-            <div id="Question3">
+            <div>
                 <h3>3. You quote and act out the lines from a specific musical on a daily basis.</h3>
-                <select>
+                <select id="Question3">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -61,9 +61,9 @@
                 </select>
 
             </div>
-            <div id="Question4">
+            <div>
                 <h3>4. You have a music playlist for each musical you love on Spotify, Pandora, Soundcloud, etc.</h3>
-                <select>
+                <select id="Question4">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -73,9 +73,9 @@
                 </select>
 
             </div>
-            <div id="Question5">
+            <div>
                 <h3>5. Related to question 4, You listen to that given music playlist on a daily basis.</h3>
-                <select>
+                <select id="Question5">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -85,9 +85,9 @@
                 </select>
 
             </div>
-            <div id="Question6">
+            <div>
                 <h3>6. You know all of the dance moves for that musical.</h3>
-                <select>
+                <select id="Question6">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -97,9 +97,9 @@
                 </select>
 
             </div>
-            <div id="Question7">
+            <div>
                 <h3>7. Your dream job as a kid is to become a triple threat: Singer, Dancer, and Actor.</h3>
-                <select>
+                <select id="Question7">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -109,9 +109,9 @@
                 </select>
 
             </div>
-            <div id="Question8">
+            <div>
                 <h3>8. You wanted to go to NYC just to see your favorite musical either On-Broadway or Off-Broadway.</h3>
-                <select>
+                <select id="Question8">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -121,11 +121,11 @@
                 </select>
 
             </div>
-            <div id="Question9">
+            <div>
                 <h3>9. You love waiting outside the theater for hours on end for the show to start and you can hardly contain
                     your excitement.
                 </h3>
-                <select>
+                <select id="Question9">
                     <option value="0">Select Your Answer!</option>
                     <option value="1">1-Strongly Disagree</option>
                     <option value="2">2</option>
@@ -133,7 +133,6 @@
                     <option value="4">4</option>
                     <option value="5">5-Strongly Agree</option>
                 </select>
-
             </div>
             <div>
                 <h3>10. Your absolute dream is to meet and greet your favorite actor from that musical at the end of the show
@@ -146,7 +145,6 @@
                     <option value="4">4</option>
                     <option value="5">5-Strongly Agree</option>
                 </select>
-
             </div>
             <button type="submit" class="btn btn-success" id="button">Submit</button>
         </form>
@@ -159,11 +157,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    
+
                 </div>
                 <div class="modal-body">
-                    <p>Name:</p><h3 id="matchName"></h3>
-                    
+                    <p>Name:</p>
+                    <h3 id="matchName"></h3>
+
                 </div>
 
                 <div class="form-group">
@@ -192,41 +191,45 @@
                 var user = {
                     name: $("#name").val(),
                     picture: $("#image").val(),
-                    answers: [],
+                    score: [],
                 }
                 var value1 = $('#Question1').val();
-                user.answers.push(value1),
+                user.score.push(value1),
                     console.log(user);
                 var value2 = $('#Question2').val();
-                user.answers.push(value2),
+                user.score.push(value2),
                     console.log(user);
                 var value3 = $('#Question3').val();
-                user.answers.push(value3),
+                user.score.push(value3),
                     console.log(user);
                 var value4 = $('#Question4').val();
-                user.answers.push(value4),
+                user.score.push(value4),
                     console.log(user);
                 var value5 = $('#Question5').val();
-                user.answers.push(value5),
+                user.score.push(value5),
                     console.log(user);
                 var value6 = $('#Question6').val();
-                user.answers.push(value6),
+                user.score.push(value6),
                     console.log(user);
                 var value7 = $('#Question7').val();
-                user.answers.push(value7),
+                user.score.push(value7),
                     console.log(user);
                 var value8 = $('#Question8').val();
-                user.answers.push(value8),
+                user.score.push(value8),
                     console.log(user);
                 var value9 = $('#Question9').val();
-                user.answers.push(value9),
+                user.score.push(value9),
                     console.log(user);
                 var value10 = $('#Question10').val();
-                user.answers.push(value10),
+                user.score.push(value10),
                     console.log(user);
-
-            })
             
+            $.post("/api/friends", user, function(data){
+            } ).done(function(data){
+                alert(data.matchName);
+            })
+            })
+
         })
     //     $("button").submit( function(event) {
     //     event.preventDefault();
@@ -252,28 +255,28 @@
     //             }
 
     //         console.log(userData);
-            
+
     //         $.post("/data/friends",userData , function (data) {
 
     //             //alert(data);
 
     //             $("#matchName").text(data.name);
-                
-                
+
+
     //             // Show best match on pop up modal
     //             $("#resultsModal").modal("toggle");
 
-                
-                
+
+
     //         });
 
     //     } // end of if valid
-        
-        
+
+
 
     // }); // end of button click
 
-    
+
     // // Need to Validate the Form 
     //  function formValidation() {
 
@@ -289,7 +292,7 @@
     //         formValid = false;
     //       }
     //     });
-        
+
     //     return formValid;
     //   }
 
