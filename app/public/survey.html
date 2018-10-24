@@ -160,8 +160,7 @@
 
                 </div>
                 <div class="modal-body">
-                    <p>Name:</p>
-                    <h3 id="matchName"></h3>
+                    <h3 id="matchName">Name: </h3>
 
                 </div>
 
@@ -223,11 +222,11 @@
                 var value10 = $('#Question10').val();
                 user.score.push(value10),
                     console.log(user);
-            
-            $.post("/api/friends", user, function(data){
-            } ).done(function(data){
-                alert(data.matchName);
-            })
+
+                $.post("/api/friends", user, function (data) {
+                }).done(function (data) {
+                    alert(data.matchName);
+                })
             })
 
         })
