@@ -175,7 +175,7 @@
         </div>
     </div>
 
-    <a href="./data/friends.js">API Cast Members List</a> ||
+    <a href="/data/friends">API Cast Members List</a> ||
     <a href="https://github.com/ChiChiMaka64/Friend_Finder_2.git">GitHub Repo</a>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -225,7 +225,7 @@
 
                 $.post("/api/friends", user, function (data) {
                 }).done(function (data) {
-                    alert(data.matchName);
+                    alert("Fellow cast member:" + data.matchName);
                 })
             })
 

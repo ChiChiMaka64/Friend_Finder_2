@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 require("./app/routing/apiRoutes");
 require("./app/routing/htmlRoutes");
 var path=require("path");
-var friends=require("./app/data/friends");
+var friends=require("./app/data/friends.js");
 var app = express();
 
 // Set the port of our application
