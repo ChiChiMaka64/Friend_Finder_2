@@ -13,7 +13,7 @@ var PORT = process.env.PORT || 8080;
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("/public/"));
+app.use(express.static("app/public/"));
 
 app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, "./app/public/home.html"));
